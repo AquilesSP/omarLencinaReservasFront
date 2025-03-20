@@ -1,0 +1,85 @@
+.reservas-container{
+  height: 100dvh;
+  width: 100dvw;
+}
+
+.reservas-container button{
+  margin-top: 0;
+}
+
+.reservas-nav{
+  padding: 0 .5rem;
+  color: white;
+
+  align-items: center;
+  height: 64px;
+}
+
+.reservas-nav h4{
+  font-size: 1.5rem;
+}
+
+.reservas-activities{
+  padding: 1rem;
+
+  position: absolute;
+  bottom: .5rem;
+  left: .5rem;
+  width: calc(100% - 1rem);
+}
+
+.reservas-activities h4{
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.reservas-activities ul li:nth-child(even){
+  margin: 1rem 0;
+}
+
+.reservas-activities ul li{
+  font-size: 1rem;
+}
+
+.reservas-activities-box{
+  position: relative;
+  padding: .4rem 1rem .6rem 1rem;
+
+  align-items: center;
+  overflow: hidden;
+}
+
+.reservas-activities-box .tile{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+
+}
+
+.tile::before{
+  position: absolute;
+  content: '';
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: .9rem;
+}
+
+.reservaTitle{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.reservas-container input[type="radio"]{
+  display: none;
+}
+
+.reserva-schedule-list .btn{
+  margin: 0;
+  text-align: center;
+}
