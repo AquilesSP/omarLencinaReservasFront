@@ -1,74 +1,49 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Web App de Reservas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es una aplicación web desarrollada con **React.js** que permite a los usuarios gestionar reservas de servicios.  
 
-## Available Scripts
+## 🛠️ Tecnologías utilizadas
 
-In the project directory, you can run:
+- **React.js** (Frontend)
+- **API REST** (Backend)
+- **LocalStorage** (Gestión de sesión sin registro)
+- **Fetch API** (Solicitudes HTTP a la API)
 
-### `yarn start`
+## 🚀 Funcionamiento
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🧑‍💻 Escenarios de uso
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Usuario sin registrar:**  
+   - Puede guardar variables de sesión en `localStorage` para usarlas más adelante.
 
-### `yarn test`
+2. **Usuario con reservas guardadas en el servidor:**  
+   - Debe ingresar un **DNI / Pasaporte / Código numérico** de al menos **8 caracteres** para acceder.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
+### 📅 Flujo de reserva
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Ingreso del usuario:**  
+   - El usuario ingresa su código de identificación.  
+   - La aplicación consulta la API para obtener las reservas existentes del día actual.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Consulta de reservas:**  
+   - Si el usuario **tiene reservas**, estas se muestran en pantalla.  
+   - Si **no tiene reservas**, se le solicita ingresar un **nombre completo válido** para continuar.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Selección de servicio:**  
+   - Se obtiene la lista de servicios disponibles desde la API.  
+   - Si el usuario ya tiene una reserva para un servicio en la fecha actual, esa opción se deshabilita.  
+   - Si no, el usuario puede seleccionar un servicio y se muestran los horarios disponibles.  
 
-### `yarn eject`
+4. **Confirmación de reserva:**  
+   - El usuario selecciona un horario y presiona **"Continuar"**.  
+   - Se envía una solicitud **POST** a la API con los datos de la reserva:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# omarLencinaReservasFront
->>>>>>> e1f2cf30a91d9578ea3b47dc67958156b7da5a1c
+   ```json
+   {
+     "cliente": "Nombre - Código de identificación",
+     "servicioId": "ID del servicio",
+     "fechaDesde": "date con timezone",
+     "fechaHasta": "date con timezone"
+   }
